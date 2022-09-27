@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="118.12129mm"
+   height="118.1213mm"
+   viewBox="0 0 118.12129 118.1213"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="initial_overhead.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:export-filename="/home/dennis/Projects/2022_susi/susi-workshop/Automation/presentation/img/initial_overhead.png"
+   inkscape:export-xdpi="199.98087"
+   inkscape:export-ydpi="199.98087"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview19"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.610509"
+     inkscape:cx="223.22135"
+     inkscape:cy="223.22135"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mend"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path872" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mstart"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path869" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mstart-3"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path869-6" />
+    </marker>
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-21.166674,-51.212027)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Mstart)"
+       d="M 29.104168,52.893208 V 167.70783"
+       id="path859" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Mstart-3)"
+       d="M 137.60307,160.33748 H 22.534794"
+       id="path859-5" />
+    <path
+       style="fill:none;stroke:#d60104;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="M 29.104168,160.33747 132.29168,86.254163"
+       id="path1292" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;word-spacing:0px;fill:#d60104;fill-opacity:1;stroke-width:0.264583"
+       x="7.6476183"
+       y="144.54074"
+       id="text6476"
+       transform="rotate(-35.893844)"><tspan
+         id="tspan6474"
+         style="font-size:7.05556px;fill:#d60104;fill-opacity:1;stroke-width:0.264583"
+         x="7.6476183"
+         y="144.54074">non-automated</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;word-spacing:0px;fill:#0000f9;fill-opacity:1;stroke-width:0.264583"
+       x="82.860344"
+       y="132.64062"
+       id="text6476-3"
+       transform="rotate(-5.9566122)"><tspan
+         id="tspan6474-5"
+         style="font-size:7.05556px;fill:#0000f9;fill-opacity:1;stroke-width:0.264583"
+         x="82.860344"
+         y="132.64062">automated</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;word-spacing:0px;fill:#0000f9;fill-opacity:1;stroke-width:0.264583"
+       x="70.046021"
+       y="166.94522"
+       id="text6476-3-3"
+       transform="rotate(0.13197354)"
+       inkscape:export-filename="/home/dennis/Projects/2022_susi/susi-workshop/Automation/presentation/img/initial_overhead.png"
+       inkscape:export-xdpi="299.9003"
+       inkscape:export-ydpi="299.9003"><tspan
+         id="tspan6474-5-6"
+         style="font-size:7.05556px;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         x="70.046021"
+         y="166.94522">time</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;word-spacing:0px;fill:#0000f9;fill-opacity:1;stroke-width:0.264583"
+       x="-112.66184"
+       y="27.462469"
+       id="text6476-3-3-7"
+       transform="rotate(-89.809157)"><tspan
+         id="tspan6474-5-6-5"
+         style="font-size:7.05556px;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         x="-112.66184"
+         y="27.462469">effort</tspan></text>
+    <path
+       style="fill:none;stroke:#0000f9;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 29.104168,160.33747 c 0.317675,-5.635 2.164806,-11.17639 5.291667,-15.875 3.029333,-4.55205 7.199805,-8.26758 11.786359,-11.24442 4.586555,-2.97684 9.595294,-5.24531 14.671974,-7.27641 21.811778,-8.72655 45.299002,-13.24332 68.791682,-13.22916"
+       id="path9129" />
+  </g>
+</svg>
