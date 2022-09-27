@@ -1,0 +1,21 @@
+configfile: "./input.yml"
+
+# targets to be created in a run of the entire workflow
+rule all:
+    input: "result.vti", "function.png", "function_plot.pdf"
+
+rule run_simulation:
+    output: "result.vti"
+    run:
+        from simulation import simulate
+        simulate(scale=float(config["scale"]))
+
+rule render_image:
+    input: "result.vti"
+    output: "function.png"
+    shell: "pvbatch render_state.py"
+
+rule plot:
+    input: "result.vti"
+    output: "function_plot.pdf"
+    shell: "pvbatch make_plot_data.py && python3 plot.py"

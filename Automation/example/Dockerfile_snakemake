@@ -1,0 +1,19 @@
+# instead of copying the contents of Dockerfile_bash, we just
+# reuse a built version of the image for the sake of the example
+# NOTE: this expects that you have built Dockerfile_bash before
+#       while tagging it with "example_bash"
+FROM example_bash
+
+# It is generally better if you get the ressources from a persistent source!
+COPY input.yml .
+COPY Snakefile .
+
+# The installation of snakemake requires gcc for installing build dependencies
+# Therefore, we install gcc before the pip install, and then remove it again
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install --no-install-recommends --yes gcc \
+    && python3 -m pip install snakemake \
+    && apt-get remove gcc --yes \
+    && apt-get autoremove --yes \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

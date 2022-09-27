@@ -1,0 +1,38 @@
+FROM ubuntu:22.04
+
+# install basic dependencies, curl & graphics libs are required for paraview
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update \
+    && apt-get upgrade -y -o Dpkg::Options::="--force-confold" \
+    && apt-get install --no-install-recommends --yes \
+        libcurl4 libgomp1 libgl1-mesa-glx libglu1-mesa libegl1-mesa \
+        python3-dev \
+        python3-pip \
+        wget \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Get a headless version of paraview. This is not optimal, but the standard
+# package installed via apt-get is not headless, causing errors due to graphics
+# drivers. There are also paraview images, but there we had problems installing
+# missing python packages.
+ARG PVVERSION="ParaView-5.10.1-egl-MPI-Linux-Python3.9-x86_64"
+RUN URL="https://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.10&type=binary&os=Linux&downloadFile=${PVVERSION}.tar.gz" \
+    && wget "$URL" -O ${PVVERSION}.tar.gz \
+    && tar -xvf ${PVVERSION}.tar.gz \
+    && rm ${PVVERSION}.tar.gz
+ENV PATH="${PATH}:/${PVVERSION}/bin"
+
+WORKDIR /my_simulation
+VOLUME /my_simulation
+
+# Install python depenendencies
+RUN python3 -m pip install matplotlib
+
+# It is generally better if you get the ressources from a persistent source!
+COPY make_plot_data.py .
+COPY plot.py .
+COPY pvstate.pvsm .
+COPY render_state.py .
+COPY simulation.py .
+COPY automation.sh .
