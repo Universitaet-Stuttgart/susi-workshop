@@ -1,0 +1,636 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <meta name="author" content="Dennis Gläser">
+        <meta name="author" content="Martin Schneider">
+        <meta name="author" content="Jan Range">
+        <title>Susi workshop: automation</title>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <link rel="stylesheet" href="../Automation/presentation/reveal.js/dist/reset.css">
+        <link rel="stylesheet" href="../Automation/presentation/reveal.js/dist/reveal.css">
+        <link rel="stylesheet" href="../Automation/presentation/reveal.js/dist/theme/custom_white.css">
+        <link rel="stylesheet" href="../Automation/presentation/reveal.js/plugin/highlight/zenburn.css">
+    </head>
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+            font-size: 75%;
+        }
+    </style>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section id="title-slide"
+                         data-background-size="100%"
+                         data-background-image="img/susi_sketch.png"
+                         data-background-opacity="0.5">
+                    <div style="width:100%; background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                        <h3>SusI Final Workshop</h3>
+                        <h3>Make your Computational Engineering Paper reproducible</h3>
+                        <p></p>
+                        <p>Köngen, Germany, 28.-30.09.2022</p>
+                    </div>
+                </section>
+
+                <section id="Agenda"
+                         data-background-size="100%"
+                         data-background-image="img/susi_sketch.png"
+                         data-background-opacity="0.5">
+                    <div style="width:100%; background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                        <h2>Outline</h2>
+                        <ul>
+                            <li>The SusI Project</li>
+                            <li>Workshop Overview</li>
+                            <li>Introduction of Participants and Papers</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <section data-background-size="100%"
+                             data-background-image="img/susi_sketch.png"
+                             data-background-opacity="0.5">
+                        <div style="width:100%; background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <h2>The SusI Project</h2>
+                        </div>
+                    </section>
+                    
+                    <section data-transition="fade-in slide-out">
+                        <h3>Project Facts</h3>
+                        <p><ul style="font-size: 0.7em; line-height: 1.3em;">
+                            <li><b>Title:</b> Sustainable infrastructure for the improved usability and archivability of research software on the example of the porous-media-simulator DuMux</li>
+                            <li><b>Applicants:</b></li>
+                            <ul>
+                                <li>Bernd Flemisch (IWS)</li>
+                                <li>Sibylle Hermann (UB, SimTech)</li>
+                                <li>Thomas Richter, then David Boehringer (TIK)</li>
+                            </ul>
+                            <li>Funded by the <b>DFG</b>, duration: 02/2019 - 09/2022</li>
+                            <li>Two funded <b>positions</b>, filled by</li>
+                            <ul>
+                                <li>Kilian Weishaupt, then Sarbani Roy (IWS)</li>
+                                <li>Anett Seeland, then Katharina Schulze (TIK, UB)</li>
+                            </ul>
+                        </ul></p>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/dfg_call.png" style="width: 22vw; min-width: 30px;"></img>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h4>From the Original Project Description (2017)</h4>
+                        <p><ul style="font-size: 0.7em; line-height: 1.3em;">
+                            <li>The <b>primary objectives</b> of the project are to</li>
+                            <ul>
+                                <li>improve the <b>usability</b> of the research software DuMux ...,</li>
+                                <li>advance the <b>archivability</b> ... such that the ... results can be <b>reproduced.</b></li>
+                            </ul>
+                            <li>... <b>secondary objective</b> of providing the necessary infrastructure to improve the usability and archivability of <b>other research software projects.</b></li>
+                            <li>It will be possible to <b>publish</b> and conviently access publications with <b>article, software,</b> and associated research <b>data,</b></li>
+                            <li><b>and even reproduce simulation results in an online interface.</b></li>
+                        </ul></p>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>What is DuMux?</h3>
+                        <p><ul style="font-size: 0.7em; line-height: 1.3em;">
+                            <li>Stands for "DUNE for Multi-{Phase, Component, Scale, Physics, ...} flow and transport in porous media".</li>
+                            <li>Free and <b>open-source</b> simulator for flow and transport processes in and around <b>porous media</b>.</li>
+                            <li>Research code written in <b>C++.</b></li>
+                            <li>Based on <b>Dune</b> (Distributed and Unified Numerics Environment).</li>
+                            <li>Dune <b>user module</b> in the Dune environment.</li>
+                            <li><b>Goal:</b> sustainable and consistent framework for the implementation and application of model concepts and constitutive relations.</li>
+                        </ul></p>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/dumux_logo.png" style="width: 32vw; min-width: 30px;"></img>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>SusI Project Detailed Overview</h3>
+                        <img src="img/susi_detail.png" style="width: 34vw; min-width: 30px;"></img>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Work Packages</h3>
+                        <p><ul style="font-size: 0.7em; line-height: 1.3em;">
+                            <li>WP 1: Highly conﬁgurable representative <b>DuMux</b> executable.</li>
+                            <li>WP 2: <b>ViPLab</b> frontend integration into <b>DaRUS.</b></li>
+                            <li>WP 3: Automated generation of DuMux <b>Docker</b> containers.</li>
+                            <li>WP 4: <b>DaRUS</b> adaptation for software and container archiving.</li>
+                            <li>WP 5: Documentation and guidelines.</li>
+                        </ul></p>
+                        <p><ul style="font-size: 0.7em; line-height: 1.3em;">
+                            <li>WP Z: Coordination, administration and <b>workshops.</b></li>
+                        </ul></p>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background-size="100%"
+                             data-background-image="img/susi_sketch.png"
+                             data-background-opacity="0.5">
+                        <div style="width:100%; background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <h2>Workshop Overview</h2>
+                        </div>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Main Blocks</h3>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/automation.png" style="width: 22vw; min-width: 30px;"></img>
+                                <p>Tools and Strategies for Automation</p>
+                            </div>
+                            <div class="col">
+                                <p style="color:white;font-size: 60%;">White text</p>
+                                <img src="img/Moby-logo.png" style="width: 22vw; min-width: 30px;"></img>
+                                <p>Containerization with Docker</p>
+                            </div>
+                            <div class="col">
+                                <img src="img/viplab.png" style="width: 22vw; min-width: 30px;"></img>
+                                <p>Generating Web Applications with ViPLab</p>
+                            </div>
+                            <div class="col">
+                                <img src="img/darus.png" style="width: 22vw; min-width: 30px;"></img>
+                                <p>Publication of Data and Software</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Agenda</h3>
+                        <div class="container">
+                            <div class="col">
+                                <h4 id="wednesday-28.9.">Wednesday, 28.9.</h4>
+                                <p style="color:white;font-size: 214%;">White text</p>
+                                <table style="font-size: 65%;">
+                                <thead>
+                                <tr class="header">
+                                <th>Time</th>
+                                <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="odd">
+                                <td></td>
+                                <td><i>Arrival</i></td>
+                                </tr>
+                                <tr class="even">
+                                <td>12:00</td>
+                                <td><i>Lunch</i></td>
+                                </tr>
+                                <tr class="odd">
+                                <td>13:00</td>
+                                <td>Welcome and Overview</td>
+                                </tr>
+                                <tr class="even">
+                                <td>13:30</td>
+                                <td>Introduction of Participants and Projects</td>
+                                </tr>
+                                <tr class="odd">
+                                <td>14:00</td>
+                                <td>Tools and Strategies for Automation</td>
+                                </tr>
+                                <tr class="even">
+                                <td>15:00</td>
+                                <td><i>Coffee Break</i></td>
+                                </tr>
+                                <tr class="odd">
+                                <td>15:30</td>
+                                <td>Individual Project Work</td>
+                                </tr>
+                                <tr class="even">
+                                <td>18:30</td>
+                                <td>Wrap-Up</td>
+                                </tr>
+                                <tr class="odd">
+                                <td>19:00</td>
+                                <td><i>Dinner and Get-Together</i></td>
+                                </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                            <div class="col">
+                                <h4 id="thursday-29.9.">Thursday, 29.9.</h4>
+                                <table style="font-size: 65%;">
+                                <thead>
+                                <tr class="header">
+                                <th>Time</th>
+                                <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="odd">
+                                <td>8:00</td>
+                                <td><i>Breakfast</i></td>
+                                </tr>
+                                <tr class="even">
+                                <td>9:00</td>
+                                <td>Containerization with Docker</td>
+                                </tr>
+                                <tr class="odd">
+                                <td>10:00</td>
+                                <td>Individual Project Work</td>
+                                </tr>
+                                <tr class="even">
+                                <td>11:00</td>
+                                <td><i>Coffee Break</i></td>
+                                </tr>
+                                <tr class="odd">
+                                <td>11:30</td>
+                                <td>Individual Project Work</td>
+                                </tr>
+                                <tr class="even">
+                                <td>12:45</td>
+                                <td>Wrap-Up</td>
+                                </tr>
+                                <tr class="odd">
+                                <td>13:00</td>
+                                <td><i>Lunch</i></td>
+                                </tr>
+                                <tr class="even">
+                                <td>14:00</td>
+                                <td>Generating Web Applications with ViPLab</td>
+                                </tr>
+                                <tr class="odd">
+                                <td>15:00</td>
+                                <td><i>Coffee Break</i></td>
+                                </tr>
+                                <tr class="even">
+                                <td>15:30</td>
+                                <td>Individual Project Work</td>
+                                </tr>
+                                <tr class="odd">
+                                <td>18:30</td>
+                                <td>Wrap-Up</td>
+                                </tr>
+                                <tr class="even">
+                                <td>19:00</td>
+                                <td><i>Dinner and Get-Together</i></td>
+                                </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                            <div class="col">
+                                <h4 id="friday-30.9.">Friday, 30.9.</h4>
+                                <table style="font-size: 65%;">
+                                <thead>
+                                <tr class="header">
+                                <th>Time</th>
+                                <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="odd">
+                                <td>8:00</td>
+                                <td><i>Breakfast</i></td>
+                                </tr>
+                                <tr class="even">
+                                <td>9:00</td>
+                                <td>Publication of Data and Software</td>
+                                </tr>
+                                <tr class="odd">
+                                <td>10:00</td>
+                                <td>Individual Project Work</td>
+                                </tr>
+                                <tr class="even">
+                                <td>11:00</td>
+                                <td><i>Coffee Break</i></td>
+                                </tr>
+                                <tr class="odd">
+                                <td>11:30</td>
+                                <td>Individual Project Work</td>
+                                </tr>
+                                <tr class="even">
+                                <td>12:30</td>
+                                <td>Conclusion and Outlook</td>
+                                </tr>
+                                <tr class="odd">
+                                <td>13:00</td>
+                                <td><i>Lunch</i></td>
+                                </tr>
+                                <tr class="even">
+                                <td>13:30</td>
+                                <td><i>Departure</i></td>
+                                </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>The Workshop Team</h3>
+                        <p><ul style="font-size: 0.7em; line-height: 1.3em;">
+                            <li>David Boehringer (TIK)</li>
+                            <li>Bernd Flemisch (IWS)</li>
+                            <li>Dennis Gläser (IWS)</li>
+                            <li>Sibylle Hermann (UB, SimTech)</li>
+                            <li>Jan Range (IBTB, SimTech)</li>
+                            <li>Sarbani Roy (IWS, SimTech)</li>
+                            <li>Martin Schneider (IWS)</li>
+                            <li>Katharina Schulze (TIK)</li>
+                            <li>Anett Seeland (TIK)</li>
+                        </ul></p>
+                    </section>
+               </section>
+
+                <section>
+                    <section data-background-size="100%"
+                             data-background-image="img/susi_sketch.png"
+                             data-background-opacity="0.5">
+                        <div style="width:100%; background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <h2>Introduction of Participants and Papers</h2>
+                        </div>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h4>Overview of Participants and Papers</h4>
+                        <table style="font-size:45%;">
+                            <colgroup>
+                            <col style="width: 8%" />
+                            <col style="width: 20%" />
+                            <col style="width: 72%" />
+                            </colgroup>
+                            <thead>
+                            <tr class="header">
+                            <th>Id</th>
+                            <th>Participant</th>
+                            <th>Paper</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="odd">
+                            <td>AbMu</td>
+                            <td>Abdullah Mujahid</td>
+                            <td><a href="https://drive.google.com/u/0/open?usp=forms_web&amp;id=1fqsGX2C9sGq0Y8HrMECvoTI_HGHLAq5m">Monolithic, non-iterative and iterative time discretization methods for linear coupled elliptic–parabolic systems</a></td>
+                            </tr>
+                            <tr class="even">
+                            <td>DaLe</td>
+                            <td>Daniel Leitner</td>
+                            <td><a href="https://drive.google.com/u/0/open?usp=forms_web&amp;id=1tepOiKkpDVpza_yLB6yr8rfasarWuvEx">Call for Participation: Collaborative Benchmarking of Functional-Structural Root Architecture Models. The Case of Root Water Uptake</a></td>
+                            </tr>
+                            <tr class="odd">
+                            <td>EtAh</td>
+                            <td>Etienne Ahusborde</td>
+                            <td><a href="https://drive.google.com/u/0/open?usp=forms_web&amp;id=1UetpZlLknLNKYY4FJdtO7Ii5Gd0mtb7i">High performance computing of 3D reactive multiphase flow in porous media: application to geological storage of CO2</a></td>
+                            </tr>
+                            <tr class="even">
+                            <td>MaZo</td>
+                            <td>Manuel Zobel</td>
+                            <td><a href="https://drive.google.com/u/0/open?usp=forms_web&amp;id=1tiaXZ8elI870wWJkFdx4gx9Rg_LGff4A">Role of Rotated Head Postures on Volunteer Kinematics and Muscle Activity in Braking Scenarios Performed on a Driving Simulator</a></td>
+                            </tr>
+                            <tr class="odd">
+                            <td>MaKe</td>
+                            <td>Mathis Kelm</td>
+                            <td><a href="https://drive.google.com/u/0/open?usp=forms_web&amp;id=1A7B56drs669eNBL0unxgRi0fj_DLS6eM">Comparison study of phase-field and level-set method for three-phase systems including two minerals</a></td>
+                            </tr>
+                            <tr class="even">
+                            <td>MaNo</td>
+                            <td>Maximilian Nolte</td>
+                            <td><a href="https://drive.google.com/u/0/open?usp=forms_web&amp;id=1-k0fOTOE-fRFUE8Z13IERBei-zyLBDp-">A Spline-based Partial Element Equivalent Circuit Method for Electrostatics</a></td>
+                            </tr>
+                            <tr class="odd">
+                            <td>NeCo</td>
+                            <td>Ned Coltman</td>
+                            <td><a href="https://drive.google.com/u/0/open?usp=forms_web&amp;id=1rsyxK3endKaH1sL7BXVZxCGUOCT8b_ri">Data-driven parameterization of a flow-transport model</a></td>
+                            </tr>
+                            <tr class="even">
+                            <td>NiMa</td>
+                            <td>Niels Hansen,<br>Marc Högler</td>
+                            <td><a href="https://drive.google.com/u/0/open?usp=forms_web&amp;id=1cNPOmcUwi7LzGI9NgH16IeWMV9esGTTS">Fluid properties under mesoporous confinement</a></td>
+                            </tr>
+                            <tr class="odd">
+                            <td>SeHo</td>
+                            <td>Sebastian Hogeweg</td>
+                            <td><a href="https://drive.google.com/u/0/open?usp=forms_web&amp;id=1baak032zYq6eLkPJ9pp4re84T5AXL5F2">Benchmark study for the simulation of Underground Hydrogen Storage operations</a></td>
+                            </tr>
+                            <tr class="even">
+                            <td>SoHe</td>
+                            <td>Sonja Hellebrand</td>
+                            <td><a href="https://drive.google.com/u/0/open?usp=forms_web&amp;id=1ayGe24hBaPavW97Jn_H132fDx95NHVI-">Residual stresses in hot bulk formed parts: two-scale approach for austenite-to-martensite phase transformation</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    
+                    <section data-transition="fade-in slide-out">
+                        <h3>Paper AbMu</h3>
+                        <p><ul style="font-size: 0.8em; line-height: 1.4em;">
+                            <li>Title: <a href="https://doi.org/10.14464/gammas.v4i1.500">Monolithic, non-iterative and iterative time discretization methods for linear coupled elliptic–parabolic systems</a></li>
+                            <li>Participant: Abdullah Mujahid, Universität Stuttgart / Universität Augsburg</li>
+                            <li>Toolchain: FEniCS</li>
+                        </ul></p>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/am_title.png" style="width: 22vw; min-width: 30px;"></img>
+                            </div>
+                            
+                            <div class="col">
+                                <img src="img/am_figure1.png" style="width: 22vw; min-width: 30px;"></img>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section data-transition="fade-in slide-out">
+                        <h3>Paper DaLe</h3>
+                        <p><ul style="font-size: 0.8em; line-height: 1.4em;">
+                            <li>Title: <a href="https://doi.org/10.3389/fpls.2020.00316">Call for Participation: Collaborative Benchmarking of Functional-Structural Root Architecture Models. The Case of Root Water Uptake</a></li>
+                            <li>Participant: Daniel Leitner, FZ Jülich, IBG-3</li>
+                            <li>Toolchain: DuMux, RSWMS, OpenSimRoot, Python/Matplotlib</li>
+                        </ul></p>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/dl_title.png" style="width: 20vw; min-width: 30px;"></img>
+                            </div>
+                            <div class="col">
+                                <img src="img/dl_figure3.png" style="width: 20vw; min-width: 30px;"></img>
+                            </div>
+                            
+                            <div class="col">
+                                <img src="img/dl_figure6.png" style="width: 20vw; min-width: 30px;"></img>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section data-transition="fade-in slide-out">
+                        <h3>Paper EtAh</h3>
+                        <p><ul style="font-size: 0.8em; line-height: 1.4em;">
+                            <li>Title: <a href="https://doi.org/10.1007/s10596-021-10082-x">High performance computing of 3D reactive multiphase flow in porous media: application to geological storage of CO2</a></li>
+                            <li>Participant: Etienne Ahusborde, University of Pau & CNRS</li>
+                            <li>Toolchain: Gmsh, DuMux, Paraview/Vtk</li>
+                        </ul></p>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/ea_title.png" style="width: 25vw; min-width: 30px;"></img>
+                            </div>
+                            
+                            <div class="col">
+                                <img src="img/ea_figure5.png" style="width: 25vw; min-width: 30px;"></img>
+                            </div>
+                        </div>
+                     </section>   
+                     
+                     <section data-transition="fade-in slide-out">
+                        <h3>Paper MaKe</h3>
+                        <p><ul style="font-size: 0.8em; line-height: 1.4em;">
+                            <li>Title: <a href="https://doi.org/10.1007/s10596-022-10142-w">Comparison study of phase-field and level-set method for three-phase systems including two minerals</a></li>
+                            <li>Participant: Mathis Kelm, Universität Stuttgart</li>
+                            <li>Toolchain: DuMux (+RTSPHEM), Paraview/Vtk, Matlab</li>
+                        </ul></p>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/mk_title.png" style="width: 20vw; min-width: 30px;"></img>
+                            </div>
+                            <div class="col">
+                                <img src="img/mk_figure2.png" style="width: 20vw; min-width: 30px;"></img>
+                            </div>
+                            
+                            <div class="col">
+                                <img src="img/mk_figure3.png" style="width: 8vw; min-width: 30px;"></img>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section data-transition="fade-in slide-out">
+                        <h3>Paper MaNo</h3>
+                        <p><ul style="font-size: 0.8em; line-height: 1.4em;">
+                            <li>Title: <a href="https://doi.org/10.48550/arXiv.2207.13697">A Spline-based Partial Element Equivalent Circuit Method for Electrostatics</a></li>
+                            <li>Participant: Maximilian Nolte, Technische Universität Darmstadt</li>
+                            <li>Toolchain: Bembel, Paraview</li>
+                        </ul></p>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/mn_title.png" style="width: 25vw; min-width: 30px;"></img>
+                            </div>
+                            <div class="col">
+                                <img src="img/mn_figure13.png" style="width: 20vw; min-width: 30px;"></img>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section data-transition="fade-in slide-out">
+                        <h3>Paper MaZo</h3>
+                        <p><ul style="font-size: 0.8em; line-height: 1.4em;">
+                            <li>Title: <a href="https://drive.google.com/file/d/1tiaXZ8elI870wWJkFdx4gx9Rg_LGff4A/view">Role of Rotated Head Postures on Volunteer Kinematics and Muscle Activity in Braking Scenarios Performed on a Driving Simulator</a></li>
+                            <li>Participant: Manuel Zobel, Universität Stuttgart</li>
+                            <li>Toolchain: Jupyter Lab/Notebook, Matlab</li>
+                        </ul></p>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/mz_title.png" style="width: 30vw; min-width: 30px;"></img>
+                            </div>
+                            
+                            <div class="col">
+                                <img src="img/mz_figure5.png" style="width: 30vw; min-width: 30px;"></img>
+                            </div>
+                        </div>
+                    </section> 
+                       
+                    <section data-transition="fade-in slide-out">
+                        <h3>Paper NeCo</h3>
+                        <p><ul style="font-size: 0.8em; line-height: 1.4em;">
+                            <li>Title: <a href="https://drive.google.com/file/d/1rsyxK3endKaH1sL7BXVZxCGUOCT8b_ri/view">Data driven parameterization of a flow-transport model (WIP)</a></li>
+                            <li>Participant: Ned Coltman, Universität Stuttgart</li>
+                            <li>Toolchain: DuMux, tensorflow/Keras, Paraview/matplotlib</li>
+                        </ul></p>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/nc_all.png" style="width: 25vw; min-width: 30px;"></img>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Paper NiMa</h3>
+                        <p><ul style="font-size: 0.8em; line-height: 1.4em;">
+                            <li>Title: <a href="https://drive.google.com/file/d/1cNPOmcUwi7LzGI9NgH16IeWMV9esGTTS/view"> Fluid properties under mesoporous confinement (WIP)</a></li>
+                            <li>Participants: Niels Hansen, Marc Högler, Universität Stuttgart</li>
+                            <li>Toolchain: PoreMS, PoreSim, Gromacs, PoreAna</li>
+                        </ul></p>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/nh_title.png" style="width: 20vw; min-width: 30px;"></img>
+                            </div>
+                        
+                            <div class="col">
+                                <img src="img/nh_figure4.png" style="width: 25vw; min-width: 30px;"></img>
+                            </div>
+                            <div class="col">
+                                <img src="img/nh_figure6.png" style="width: 25vw; min-width: 30px;"></img>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section data-transition="fade-in slide-out">
+                        <h3>Paper SeHo</h3>
+                        <p><ul style="font-size: 0.8em; line-height: 1.4em;">
+                            <li>Title: <a href="https://doi.org/10.1007/s10596-022-10163-5">Benchmark study for the simulation of Underground Hydrogen Storage operations</a></li>
+                            <li>Participant: Sebastian Hogeweg, Clausthal University of Technology</li>
+                            <li>Toolchain: DuMux, ECLIPSE</li>
+                        </ul></p>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/sh_title.png" style="width: 20vw; min-width: 40px;"></img>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section data-transition="fade-in slide-out">
+                        <h3>Paper SoHe</h3>
+                        <p><ul style="font-size: 0.8em; line-height: 1.4em;">
+                            <li>Title: <a href="https://doi.org/10.1007/s00419-020-01836-7">Residual stresses in hot bulk formed parts: two-scale approach for austenite-to-martensite phase transformation</a></li>
+                            <li>Participant: Sonja Hellebrand, University of Duisburg-Essen</li>
+                            <li>Toolchain: FEAP, Matlab</li>
+                        </ul></p>
+                        <div class="container">
+                            <div class="col">
+                                <img src="img/soh_title.png" style="width: 30vw; min-width: 30px;"></img>
+                            </div>
+                            
+                            <div class="col">
+                                <img src="img/soh_figure8.png" style="width: 30vw; min-width: 30px;"></img>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section data-background-size="100%"
+                             data-background-image="img/susi_sketch.png"
+                             data-background-opacity="0.5">
+                        <div style="width:100%; background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <h2>Goal to be reached until 18:30 h: No more manual steps starting from the installation of the software until the figure</h2>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+        <script src="../Automation/presentation/reveal.js/dist/reveal.js"></script>
+        <script src="../Automation/presentation/reveal.js/plugin/notes/notes.js"></script>
+        <script src="../Automation/presentation/reveal.js/plugin/markdown/markdown.js"></script>
+        <script src="../Automation/presentation/reveal.js/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+            });
+        </script>
+    </body>
+</html>
