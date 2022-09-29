@@ -1,0 +1,428 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <meta name="author" content="Dennis Gläser">
+        <meta name="author" content="Martin Schneider">
+        <meta name="author" content="Jan Range">
+        <title>Susi workshop: automation</title>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <link rel="stylesheet" href="./reveal.js/dist/reset.css">
+        <link rel="stylesheet" href="./reveal.js/dist/reveal.css">
+        <link rel="stylesheet" href="./reveal.js/dist/theme/custom_white.css">
+        <link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section id="title-slide"
+                         data-background-size="100%"
+                         data-background-image="https://images.idgesg.net/images/idge/imported/imageapi/2022/05/26/23/hand_controls_interconnecting_gears_process_automation_machinery_mechanism_efficiency_by_anawat_s_gettyimages-1163061322_2400x1600-100858595-large-100928471-large.jpg?auto=webp&quality=85,70"
+                         data-background-opacity="0.5">
+                    <div style="width:100%; background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                        <h3>Workflow Automation</h3>
+                    </div>
+                    <font size="3"><a href="https://www.networkworld.com/article/3663441/10-top-automation-and-orchestration-tools.html">Image source</a></font>
+                </section>
+
+                <section id="Agenda"
+                         data-background-size="100%"
+                         data-background-image="https://images.idgesg.net/images/idge/imported/imageapi/2022/05/26/23/hand_controls_interconnecting_gears_process_automation_machinery_mechanism_efficiency_by_anawat_s_gettyimages-1163061322_2400x1600-100858595-large-100928471-large.jpg?auto=webp&quality=85,70"
+                         data-background-opacity="0.5">
+                    <div style="width:100%; background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                        <h2>Agenda</h2>
+                        <ul>
+                            <li>Introduction</li>
+                            <li>Automatic post-processing</li>
+                            <li>Computational pipelines</li>
+                            <li>Installation automation</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <section data-background-size="100%"
+                             data-background-image="https://images.idgesg.net/images/idge/imported/imageapi/2022/05/26/23/hand_controls_interconnecting_gears_process_automation_machinery_mechanism_efficiency_by_anawat_s_gettyimages-1163061322_2400x1600-100858595-large-100928471-large.jpg?auto=webp&quality=85,70"
+                             data-background-opacity="0.5">
+                        <div style="width:100%; background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <h2>Introduction</h2>
+                        </div>
+                    </section>
+
+                    <section data-transition="slide-in fade-out">
+                        <h3>Why does automation matter?</h3>
+                        <p class="fragment">Manual steps ...</p>
+                        <ul>
+                            <li class="fragment">... often remain undocumented</li>
+                            <li class="fragment">... are difficult to document</li>
+                            <li class="fragment">... are difficult to repeat</li>
+                        </ul>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Why does automation matter?</h3>
+                        <p>Automatic steps ...</p>
+                        <ul>
+                            <li>... are never undocumented</li>
+                            <li>... are trivial to document</li>
+                            <li>... are "easy" to repeat</li>
+                        </ul>
+                    </section>
+
+                    <section data-transition="slide-in fade-out">
+                        <h3>Pros and Cons</h3>
+                        <p><b>-</b> <em>Initial</em> work overhead</p>
+                        <img src="img/initial_overhead.png" style="width:50%"/>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Pros and Cons</h3>
+                        <p><b>+</b> More efficient in the long run</p>
+                        <img src="img/initial_overhead.png" style="width:50%"/>
+                    </section>
+
+                    <section data-transition="slide-in fade-out">
+                        <h3>Pros and Cons</h3>
+                        <p><b>+</b>Today's research can be reunderstood in the future</p>
+                        <img src="https://miro.medium.com/max/1400/1*Zc0079ZKxn1tBmhnSS5Axg.jpeg"/>
+                        <font size="3"><a href="https://miro.medium.com/max/1400/1*Zc0079ZKxn1tBmhnSS5Axg.jpeg">Image source</a></font>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Pros and Cons</h3>
+                        <p><b>-</b>Dependency hell hinders repeatability</p>
+                        <img src="https://miro.medium.com/max/492/0*7ezJOtYUkI5zyqWU.png"/>
+                        <br>
+                        <font size="3"><a href="https://miro.medium.com/max/492/0*7ezJOtYUkI5zyqWU.png">Image source</a></font>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Things to consider</h3>
+                        <p>Prefer tools that allow scripting besides using a GUI</p>
+                        <img src="https://i0.wp.com/hanamon.kr/wp-content/uploads/2021/07/GUI-vs-CLI.png?fit=1600%2C800&ssl=1"/>
+                        <font size="3"><a href="https://i0.wp.com/hanamon.kr/wp-content/uploads/2021/07/GUI-vs-CLI.png?fit=1600%2C800&ssl=1">Image source</a></font>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Things to consider</h3>
+                        <p>Rely on established packages wherever possible</p>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPHv025mr9ZDOMO0IEdPxsgkFPbDoaLmB4bg&usqp=CAU"/>
+                        <br>
+                        <font size="3"><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPHv025mr9ZDOMO0IEdPxsgkFPbDoaLmB4bg&usqp=CAU">Image source</a></font>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Things to consider</h3>
+                        <p>Avoid local modifications to reused packages</p>
+                        <img src="https://jmengerink.files.wordpress.com/2016/05/clean-code-bart-simpson.jpg"/>
+                        <br><font size="3"><a href="https://jmengerink.files.wordpress.com/2016/05/clean-code-bart-simpson.jpg">Image source</a></font>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background-size="100%"
+                             data-background-image="https://images.idgesg.net/images/idge/imported/imageapi/2022/05/26/23/hand_controls_interconnecting_gears_process_automation_machinery_mechanism_efficiency_by_anawat_s_gettyimages-1163061322_2400x1600-100858595-large-100928471-large.jpg?auto=webp&quality=85,70"
+                             data-background-opacity="0.5">
+                        <div style="width:100%; background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <h2>Automatic post-processing</h2>
+                        </div>
+                    </section>
+
+                    <section data-transition="slide-in fade-out">
+                        <h3>An example: <a href="https://www.paraview.org/">ParaView</a></h3>
+                        <img src="img/pv_state.png"></img>
+                        <p class="fragment"><small>ParaView allows you to script visualization/processing pipelines with <em>pvbatch</em></small></p>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>An example: <a href="https://www.paraview.org/">ParaView</a></h3>
+                        <p>A very easy approach is to use <em>states</em></p>
+                        <img src="img/pv_state_save.png"></img>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>An example: <a href="https://www.paraview.org/">ParaView</a></h3>
+                        <p>Rendering of a <em>state</em> can be done easily with e.g.</p>
+                        <pre><code data-trim data-noescape class="hljs python">
+                            # render_state.py
+                            from paraview.simple import LoadState, Render, SaveScreenshot
+
+                            LoadState("pvstate.pvsm")
+                            Render()
+                            SaveScreenshot(
+                                filename="function.png",
+                                ImageResolution=(2426, 1660),
+                                TransparentBackground=1
+                            )
+                        </code></pre>
+
+                        <p class="fragment">and executed using <em>pvbatch</em></p>
+                        <div class="fragment">
+                            <pre><code data-trim data-noescape class="hljs bash">
+                                pvbatch render_state.py
+                            </code></pre>
+                        </div>
+
+                        <p class="fragment"><small>
+                            You can also skip the GUI entirely and do everything programmatically.
+                            See
+                            <a href="https://kitware.github.io/paraview-docs/latest/python/paraview.simple.html">
+                                kitware.github.io/paraview-docs/latest/python/paraview.simple.html
+                            </a>
+                        </small></p>
+                    </section>
+
+                    <section data-transition="slide-in fade-out">
+                        <h3>An example: <a href="https://www.paraview.org/">ParaView</a></h3>
+                        <p>You can script any of the ParaView filters, e.g. <em>PlotOverLine</em></p>
+                        <pre><code data-trim data-noescape class="hljs python">
+                            # make_plot_data.py
+                            from paraview.simple import XMLImageDataReader, PlotOverLine, CreateWriter
+
+                            function = XMLImageDataReader(FileName="result.vti")
+
+                            plot = PlotOverLine(Input=function)
+                            plot.Resolution = 2000
+                            plot.Point1 = [0, 0, 0]
+                            plot.Point2 = [250, 250, 0]
+
+                            writer = CreateWriter("plot_data.csv", plot)
+                            writer.UpdatePipeline()
+                        </code></pre>
+                    </section>
+
+                    <section data-transition="fade-in fade-out">
+                        <h3>An example: <a href="https://www.paraview.org/">ParaView</a></h3>
+                        <p><small>
+                            This creates a <em>.csv</em> file that contains the 2000 coordinates along the line
+                            in each row together with the interpolated values of all fields.
+                        </small></p>
+                        <pre><code data-trim data-noescape class="hljs bash">
+                            # plot_data.csv
+                            "function","vtkValidPointMask","arc_length","Points:0","Points:1","Points:2"
+                            0.031107,1,0,0,0,0
+                            0.029419,1,0.17678,0.125,0.125,0
+                            0.027733,1,0.35355,0.25,0.25,0
+                            0.026048,1,0.53033,0.375,0.375,0
+                            0.024366,1,0.70711,0.5,0.5,0
+                            0.022684,1,0.88388,0.625,0.625,0
+                            0.021005,1,1.0607,0.75,0.75,0
+                            0.019327,1,1.2374,0.875,0.875,0
+                            0.01765,1,1.4142,1,1,0
+                        </code></pre>
+                    </section>
+
+                    <section data-transition="fade-in fade-out">
+                        <h3>An example: <a href="https://www.paraview.org/">ParaView</a></h3>
+                        <p><small>
+                            Which you can then plot e.g. with <em>matplotlib</em>
+                        </small></p>
+                        <pre><code data-trim data-noescape class="hljs python">
+                            # plot.py
+                            import matplotlib.pyplot as plt
+                            from numpy import genfromtxt
+
+                            data = genfromtxt("plot_data.csv", delimiter=",", names=True)
+
+                            plt.plot(data["arc_length"], data["function"], label="function")
+                            plt.xlabel("arc_length")
+                            plt.ylabel("function")
+                            plt.savefig("function_plot.pdf", bbox_inches="tight")
+                        </code></pre>
+                    </section>
+
+                    <section data-transition="fade-in fade-out">
+                        <h3>An example: <a href="https://www.paraview.org/">ParaView</a></h3>
+                        <p><small>
+                            This allows us to create the image and plot like this:
+                        </small></p>
+                        <pre><code data-trim data-noescape class="hljs bash">
+                            pvbatch render_state.py   # writes function.png
+                            pvbatch make_plot_data.py # writes plot_data.csv
+                            python plot.py            # writes function_plot.pdf
+                        </code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background-size="100%"
+                             data-background-image="https://images.idgesg.net/images/idge/imported/imageapi/2022/05/26/23/hand_controls_interconnecting_gears_process_automation_machinery_mechanism_efficiency_by_anawat_s_gettyimages-1163061322_2400x1600-100858595-large-100928471-large.jpg?auto=webp&quality=85,70"
+                             data-background-opacity="0.5">
+                        <div style="width:100%; background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <h2>Computational pipelines</h2>
+                        </div>
+                    </section>
+
+                    <section data-transition="slide-in fade-out">
+                        <div style="background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <p>In order for others to easily reproduce your results, the entire computational pipeline should be automated</p>
+                        </div>
+                        <div class="fragment" style="background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <p>For instance, our post-processing example can be automated with a simple bash script</p>
+                        </div>
+                        <div class="fragment">
+                            <pre><code data-trim data-noescape class="hljs bash">
+                                #!/bin/bash
+                                pvbatch render_state.py   # writes function.png
+                                pvbatch make_plot_data.py # writes plot_data.csv
+                                python plot.py            # writes function_plot.pdf
+                            </code></pre>
+                        </div>
+                    </section>
+
+                    <section data-transition="fade-in fade-out">
+                        <p>Let's also add the simulation itself...</p>
+                        <div class="fragment">
+                            <pre><code data-trim data-noescape class="hljs bash">
+                                #!/bin/bash
+                                ./simulation
+                                pvbatch render_state.py   # writes function.png
+                                pvbatch make_plot_data.py # writes plot_data.csv
+                                python plot.py            # writes function_plot.pdf
+                            </code></pre>
+                        </div>
+                        <small><p class="fragment">This allows users to reproduce your results in one command</p></small>
+                    </section>
+
+                    <section data-transition="slide-in fade-out">
+                        <h3>Defining workflows</h3>
+                        <div style="background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <p>You can also use a workflow tool for automation!</p>
+                        </div>
+                        <p class="fragment"><small>
+                            see e.g. <a href="https://github.com/pditommaso/awesome-pipeline">github.com/pditommaso/awesome-pipeline</a>
+                        </small></p>
+                        <img class="fragment" src="img/pipelines.gif"/>
+                    </section>
+
+                    <section data-transition="fade-in fade-out">
+                        <h3>Defining workflows</h3>
+                        <p>An example: <a href="https://snakemake.readthedocs.io/en/stable/">SnakeMake</a></p>
+                        <pre><code data-trim data-noescape class="hljs yml">
+                            configfile: "./input.yml"
+
+                            # targets to be created in a run of the entire workflow
+                            rule all:
+                                input: "result.vti", "function.png", "function_plot.pdf"
+
+                            rule run_simulation:
+                                output: "result.vti"
+                                run:
+                                    from simulation import simulate
+                                    simulate(scale=float(config["scale"]))
+
+                            rule render_image:
+                                input: "result.vti"
+                                output: "function.png"
+                                shell: "pvbatch render_state.py"
+
+                            rule plot:
+                                input: "result.vti"
+                                output: "function_plot.pdf"
+                                shell: "pvbatch make_plot_data.py && python3 plot.py"
+
+                        </code></pre>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Defining workflows</h3>
+                        <p>An example: <a href="https://snakemake.readthedocs.io/en/stable/">SnakeMake</a></p>
+                        <p><small>This allows us to execute the workflow or individual <em>rules</em></small></p>
+                        <pre><code data-trim data-noescape class="hljs bash">
+                            snakemake --cores 1
+
+                            # execute only simulation job
+                            snakemake --cores 1 -R run_simulation
+                        </code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background-size="100%"
+                             data-background-image="https://images.idgesg.net/images/idge/imported/imageapi/2022/05/26/23/hand_controls_interconnecting_gears_process_automation_machinery_mechanism_efficiency_by_anawat_s_gettyimages-1163061322_2400x1600-100858595-large-100928471-large.jpg?auto=webp&quality=85,70"
+                             data-background-opacity="0.5">
+                        <div style="width:100%; background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <h2>Installation automation</h2>
+                        </div>
+                    </section>
+
+                    <section data-transition="slide-in fade-out">
+                        <h3>What about dependencies?</h3>
+                        <p>You may use a package manager. For instance, <a href="https://docs.conda.io/en/latest/">Conda</a></p>
+                        <pre><code data-trim data-noescape class="hljs yml">
+                            # env.yml
+                            channels:
+                              - conda-forge
+                              - defaults
+                            dependencies:
+                              - fenics=2019.1.0=py39hf3d152e_26
+                              - gmsh=4.6.0=hd134328_0
+                              - meshio=5.0.5=pyhd8ed1ab_0
+                              - paraview=5.9.1=hfc1cbd4_3_egl
+                              - tectonic=0.8.0=ha1fef3e_1
+                        </code></pre>
+                        <p class="fragment"><small>Conda allows you to create a local environment from such <em>env file</em></small></p>
+                    </section>
+
+                    <section data-transition="fade-in fade-out">
+                        <h3>What about dependencies?</h3>
+                        <p>Some workflow tools have Conda support, for instance SnakeMake</p>
+                        <pre><code data-trim data-noescape class="hljs yml">
+                            rule render_image:
+                                input: "result.vti"
+                                output: "function.png"
+                                conda: "env.yml"
+                                shell: "pvbatch render_state.py"
+                        </code></pre>
+                        <p class="fragment"><small>For this to work, you need to have Conda up and running, of course...</small></p>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Limitations & Problems</h3>
+                        <ul>
+                            <li class="fragment">Packages must be available in the required versions</li>
+                            <li class="fragment">Creating new packages is not trivial</li>
+                            <li class="fragment">Does not work for dependencies with modified source code (exotic & maybe problematic itself)</li>
+                            <li class="fragment">Users must have the package manager installed</li>
+                        </ul>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Potential solutions</h3>
+                        <div style="background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <p>Provide installation scripts for everything that requires customization & is not available via a package manager</p>
+                        </div>
+                        <p class="fragment">Note: DuMuX users may use the provided helper script</p>
+                    </section>
+
+                    <section data-transition="fade-in slide-out">
+                        <h3>Potential solutions</h3>
+                        <div style="background-color:rgba(255,255,255,0.8); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.85);">
+                            <p>Provide container images</p>
+                        </div>
+                        <p class="fragment">Note: DuMuX users may use the provided helper script</p>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+        <script src="./reveal.js/dist/reveal.js"></script>
+        <script src="./reveal.js/plugin/notes/notes.js"></script>
+        <script src="./reveal.js/plugin/markdown/markdown.js"></script>
+        <script src="./reveal.js/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+            });
+        </script>
+    </body>
+</html>
